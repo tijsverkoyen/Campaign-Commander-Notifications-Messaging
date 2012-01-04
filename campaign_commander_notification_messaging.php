@@ -8,6 +8,9 @@
  * The class is documented in the file itself. If you find any bugs help me out and report them. Reporting can be done by sending an email to php-campaign-commander-notificiation-messaging-bugs[at]verkoyen[dot]eu.
  * If you report a bug, make sure you give me enough information (include your code).
  *
+ * Changelog since 1.0.0
+ * - Bugfix: wrapped dyn fields in CDATA-tags.
+ *
  * License
  * Copyright (c), Tijs Verkoyen. All rights reserved.
  *
@@ -326,7 +329,7 @@ class CampaignCommanderNotificationMessaging
 			$xml .= '	<dyn>' . "\n";
 
 			// loop pairs
-			foreach($dyn as $key => $value) $xml .= '		<entry><key>' . $key . '</key><value>' . $value . '</value></entry>' . "\n";
+			foreach($dyn as $key => $value) $xml .= '		<entry><key>' . $key . '</key><value><![CDATA['. $value .']]></value></entry>' . "\n";
 
 			// end
 			$xml .= '	</dyn>' . "\n";
